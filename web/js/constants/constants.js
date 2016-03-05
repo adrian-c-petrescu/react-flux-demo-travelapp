@@ -1,6 +1,8 @@
 
 export const NetworkMsg = {
     DataReceived: 'NetworkMsg.DataReceived',
+    Error: 'NetworkMsg.Error',
+    SetBusy: 'NetworkMsg.SetBusy'
 };
 
 export const UiEventMsg = {
@@ -11,7 +13,7 @@ export const UiEventMsg = {
 
 export const UiMsg = {
     DatasetReceived: 'UiMsg.DatasetReceived',
-    BusyStateChanged: 'UiMsg.BusyStateChanged',
+    ServiceStateChanged: 'UiMsg.ServiceStateChanged',
     PaginationReset: 'UiMsg.PaginationReset'
 
 };

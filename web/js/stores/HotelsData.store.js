@@ -15,7 +15,6 @@ class HotelsDataStore extends EventEmitter {
     _onDispatcherMessage (action) {
         if(action.actionType === NetworkMsg.DataReceived) {
             this.data = action.data.Data;
-            this.data = action.data.Data;
             this.count = action.data.AvailableCount;
             this.emit(UiMsg.DatasetReceived);
         }

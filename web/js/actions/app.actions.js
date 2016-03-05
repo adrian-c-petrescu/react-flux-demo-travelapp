@@ -7,6 +7,17 @@ export const ServiceActions = {
             actionType: NetworkMsg.DataReceived,
             data
         });
+    },
+    setBusy(busy) {
+      AppDispatcher.dispatch({
+          actionType: NetworkMsg.SetBusy,
+          busy
+      });
+    },
+    error() {
+        AppDispatcher.dispatch({
+            actionType: NetworkMsg.Error
+        });
     }
 };
 

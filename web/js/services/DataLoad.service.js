@@ -4,17 +4,12 @@ import EventEmitter from 'events';
 import { ServiceActions } from '../actions/app.actions';
 import { UiMsg } from '../constants/constants';
 
-class DataLoadService extends EventEmitter {
+class DataLoadService {
     constructor () {
-        super();
-
         this._baseServiceUrl = 'http://hotels.com/';
-        this._busy = false;
     }
 
     loadData (filter, sort, pagination) {
-        this._setBusy(true);
-
         const queryDto = this._buildRequestDto(filter, sort, pagination);
 
         let xhr = new XMLHttpRequest();
@@ -23,8 +18,8 @@ class DataLoadService extends EventEmitter {
         xhr.setRequestHeader('Accept', 'application/json');
         xhr.onreadystatechange = () => {
             if(xhr.readyState === 4) {
-                this._setBusy(false); //this will generate double rendering
-                if(xhr.status < 300) {
+                ServiceActions.setBusy(false);
+                if(xhr.status >= 200 && xhr.status < 300) {
                     ServiceActions.dataReceived(JSON.parse(xhr.responseText));
                 } else {
                     ServiceActions.error();
@@ -44,24 +39,6 @@ class DataLoadService extends EventEmitter {
 
         return dto;
     }
-
-    _setBusy(value) {
-        this._busy = value;
-        this.emit(UiMsg.BusyStateChanged);
-    }
-
-    addChangeListener(callback) {
-        this.on(UiMsg.BusyStateChanged, callback);
-    }
-
-    removeChangeListener(callback) {
-        this.removeListener(UiMsg.BusyStateChanged, callback);
-    }
-
-    getBusyState() {
-        return this._busy;
-    }
-
 }
 
 let dataLoadService = new DataLoadService();

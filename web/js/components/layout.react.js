@@ -4,7 +4,7 @@ import SortPane from './UiParts/sortpane.react';
 import ResultList from './UiParts/resultlist.react';
 import Pagination from './UiParts/pagination.react';
 import HotelsDataStore from '../stores/HotelsData.store';
-import DataLoadService from '../services/DataLoad.service';
+import ServiceStateStore from '../stores/ServiceState.store';
 
 class Layout extends React.Component {
     constructor(props) {
@@ -19,12 +19,12 @@ class Layout extends React.Component {
 
     componentDidMount() {
         HotelsDataStore.registerChangeListener(this._hotelsDataChanged);
-        DataLoadService.addChangeListener(this._onBusyChanged);
+        ServiceStateStore.registerChangeListener(this._onBusyChanged);
     }
 
     componentWillUnmount() {
         HotelsDataStore.removeChangeListener(this._hotelsDataChanged);
-        DataLoadService.removeChangeListener(this._onBusyChanged);
+        ServiceStateStore.removeChangeListener(this._onBusyChanged);
     }
 
     render () {
@@ -34,6 +34,7 @@ class Layout extends React.Component {
                 <div className="col-sm-3 sidebar">
                     <FilterPane />
                     { this._renderBusy() }
+                    { this._renderError() }
                 </div>
 
                 <div className="col-sm-9">
@@ -55,6 +56,15 @@ class Layout extends React.Component {
         return false;
     }
 
+    _renderError() {
+        if(this.state.error) {
+            return <img src="images/error.png" style={{width: '100%'}} />;
+        }
+
+        return false;
+    }
+
+
     _hotelsDataChanged() {
         this.setState(this._buildState());
     }
@@ -65,9 +75,12 @@ class Layout extends React.Component {
 
 
     _buildState() {
+        let serviceState = ServiceStateStore.getServiceState();
+
         return {
             resultsAvailable: HotelsDataStore.getAvailable(),
-            busy: DataLoadService.getBusyState()
+            busy: serviceState.busy,
+            error: serviceState.error
         };
     }
 }

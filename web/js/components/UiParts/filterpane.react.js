@@ -2,14 +2,12 @@
 import React from 'react/addons';
 import { UiEventActions } from '../../actions/app.actions';
 import FilterStore from '../../stores/Filter.store';
-import DataLoadService from '../../services/DataLoad.service';
 
 class FilterPane extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            busy: false,
             name: '',
             starRating: 'allStarRatings',
             userRating: 'allUserRatings',
@@ -18,15 +16,12 @@ class FilterPane extends React.Component {
 
         this._onChange = this._onChange.bind(this);
         this._onFilterClicked = this._onFilterClicked.bind(this);
-        this._serviceBusyListener = this._serviceBusyListener.bind(this);
     }
 
     componentDidMount() {
-        DataLoadService.addChangeListener(this._serviceBusyListener);
     }
 
     componentWillUnmount() {
-        DataLoadService.removeChangeListener(this._serviceBusyListener);
     }
 
     render () {
@@ -129,16 +124,8 @@ class FilterPane extends React.Component {
         UiEventActions.filterChanged(filter);
     }
 
-    _serviceBusyListener() {
-        let newState = this._cloneState();
-        newState.busy = DataLoadService.getBusyState();
-
-        this.setState(newState);
-    }
-
     _cloneState() {
         return {
-            busy: this.state.busy,
             name: this.state.name,
             starRating: this.state.starRating,
             userRating: this.state.userRating,
