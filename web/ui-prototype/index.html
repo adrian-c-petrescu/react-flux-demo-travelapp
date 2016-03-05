@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 sidebar">
+                <form role="form">
+                    <label><b>Filter</b></label>
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" id="name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="stars">Stars</label>
+                        <select id="stars" class="form-control">
+                            <option id="">Star Rating</option>
+                            <option id="_5star">5 stars</option>
+                            <option id="_4star">4 stars</option>
+                            <option id="_3star">3 stars</option>
+                            <option id="_2star">2 stars</option>
+                            <option id="_1star">1 stars</option>
+                            <option id="unrated">Unrated</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tripRating">User rating</label>
+                        <select id="tripRating" class="form-control">
+                            <option id="">Trip Rating</option>
+                            <option id="_4to5">4 to 5</option>
+                            <option id="_3to4">3 to 4</option>
+                            <option id="_2to3">2 to 3</option>
+                            <option id="_1to2">1 to 2</option>
+                            <option id="tripUnrated">Unrated</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="minPrice">MinPrice</label>
+                        <select id="minPrice" class="form-control">
+                            <option id="noPrice">--Min Price--</option>
+                            <option id="_250">&lt; 250</option>
+                            <option id="_500">&lt; 500</option>
+                            <option id="_750">&lt; 750</option>
+                            <option id="_1000">&lt; 1000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary pull-right">Apply filter</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-sm-9">
+                <p>Found 2 items</p>
+                <div class="form">
+                    <div class="form-group">
+                        <select id="sort" class="form-control">
+                            <option id="None">Order by</option>
+                            <option id="sortStars">Stars</option>
+                            <option id="sortMinCost">Minimum cost</option>
+                            <option id="sortTripRating">Trip rating</option>
+                            <option id="sortUserRating">User rating</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+
+                    </div>
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+
+                    <div class="list-group-item container-fluid">
+                        <div class="pull-left" style="margin-right: 20px">
+                            <span><img src="https://i.t-rp.co.uk/ei/2/7/2/3/6/6/7/0_80_80.jpg" /></span>
+                        </div>
+                        <div class="pull-right" style="height: 100%">
+                            <span class="glyphicon glyphicon-chevron-right" style="display: inline-block; vertical-align: middle"></span>
+                        </div>
+
+                        <div><label class="control-label">Domaine De La Corniche</label></div>
+                        <div><label class="label label-info">User rating: Average</label></div>
+                        <div><label class="label label-primary">Star rating: 5 stars</label></div>
+                    </div>
+
+                </div>
+
+                <nav>
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li class=""><a href="#">2 <span class="sr-only"></span></a></li>
+                        <li class=""><a href="#">3 <span class="sr-only"></span></a></li>
+                        <li class=""><a href="#">4 <span class="sr-only"></span></a></li>
+                        <li class=""><a href="#" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>
